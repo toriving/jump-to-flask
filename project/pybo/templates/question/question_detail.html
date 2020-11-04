@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+
 <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
 <div class="container my-3">
     <h2 class="border-bottom py-2">{{ question.subject }}</h2>
@@ -25,9 +28,19 @@
     </div>
     {% endfor %}
     <form action="{{ url_for('answer.create', question_id=question.id) }}" method="post" class="my-3">
+        {{ form.csrf_token }}
+        <!-- 오류표시 Start -->
+        {% for field, errors in form.errors.items() %}
+        <div class="alert alert-danger" role="alert">
+            <strong>{{ form[field].label }}</strong>: {{ ', '.join(errors) }}
+        </div>
+        {% endfor %}
+        <!-- 오류표시 End -->
         <div class="form-group">
             <textarea name="content" id="content" class="form-control" rows="10"></textarea>
         </div>
         <input type="submit" value="답변등록" class="btn btn-primary">
     </form>
 </div>
+
+{% endblock %}
