@@ -16,4 +16,4 @@
 - [12. 오류페이지](12_오류페이지) - [Wiki]()
 - [13. 로깅](13_로깅) - [Wiki]()
 - [14. 도메인](14_도메인) - [Wiki]()
-- [15. psotgreSQL](15_postgreSQL) - [Wiki]()
+- [15. psotgreSQL](15_PostgreSQL) - [Wiki]()
